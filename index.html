@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Vishu Jothyy!</title>
+    <!-- Elegant Festive Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --vishu-gold: #FFD700;
+            --vishu-yellow: #FFEA00;
+            --vishu-green: #2E7D32;
+            --vishu-white: #FFFDF5;
+            --kasavu: #D4AF37;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--vishu-white);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Traditional Gold Borders (Kasavu Style) */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, var(--kasavu) 0%, #F9E79F 50%, var(--kasavu) 100%);
+            z-index: 100;
+        }
+        body::before { top: 0; }
+        body::after { bottom: 0; }
+
+        /* Falling Kanikonna Petals Animation */
+        .flower-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: var(--vishu-yellow);
+            border-radius: 50% 0 50% 0;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Section Styling */
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Headings */
+        h1 {
+            font-family: 'Satisfy', cursive;
+            color: #7B5E00;
+            font-size: 4.5rem;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-family: 'Satisfy', cursive;
+            color: #7B5E00;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .malayalam-text {
+            font-size: 1.3rem;
+            color: var(--vishu-green);
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .sub-text {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+
+        /* Page 1: Kanikonnapoo */
+        .konna-img {
+            width: 300px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            animation: sway 4s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(3deg) translateY(-10px); }
+        }
+
+        /* Page 2: Vishukani Photo Box */
+        .kani-display {
+            width: 320px;
+            height: 420px;
+            border: 10px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            display: none;
+            margin-top: 25px;
+            overflow: hidden;
+            animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .kani-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Page 3: Cute GIF */
+        .cute-gif {
+            width: 240px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--vishu-green);
+            color: white;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            background-color: #1b5e20;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.8rem; }
+            .konna-img { width: 240px; }
+            .kani-display { width: 280px; height: 380px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Falling Petals Background -->
+    <div class="flower-container" id="flower-container"></div>
+
+    <!-- PAGE 1: GREETING -->
+    <section id="page1">
+        <img src="https://www.pngplay.com/wp-content/uploads/12/Cassia-Fistula-Flower-Transparent-PNG.png" class="konna-img" alt="Kanikonnapoo">
+        <h1>Happy Vishu, Jothyy!</h1>
+        <p class="malayalam-text">ഐശ്വര്യത്തിന്റേയും സമൃദ്ധിയുടേയും വിഷുക്കാലം</p>
+        <p class="sub-text">May this year be as bright and golden as the flowers of the Golden Shower Tree.</p>
+        <a href="#page2" class="btn">Click for a surprise ✨</a>
+    </section>
+
+    <!-- PAGE 2: VISHUKANI REVEAL -->
+    <section id="page2">
+        <h2>Your Vishukani</h2>
+        <p class="sub-text">Tradition says the first thing you see today determines your year. Ready to see yours?</p>
+        
+        <button class="btn" onclick="revealKani()" id="revealBtn">See Your Kani</button>
+
+        <div class="kani-display" id="kaniDisplay">
+            <!-- IMPORTANT: Upload your photo to GitHub and name it kani.jpg -->
+            <img src="kani.jpg" alt="Traditional Vishukani">
+        </div>
+
+        <a href="#page3" class="btn" style="display:none;" id="kaineetamBtn">Something is missing...</a>
+    </section>
+
+    <!-- PAGE 3: KAINEETAM -->
+    <section id="page3">
+        <h2>Kaineetam okke porate?</h2>
+        
+        <!-- THE CUTE BEGGING GIF -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y5YTF6MHNib3dzcTV5ZHBqejR4N3R6Nms1Yzd4aHNjYTR6dG5hbiZlcD12MV9pbnRlcm5hbV9naWZfYnlfaWQmY3Q9Zw/qUIm5wu6LAAog/giphy.gif" class="cute-gif" alt="Cute kitten asking">
+        
+        <p class="sub-text">"Kani okke kandu... ini kaineetam koode thannal full set!"</p>
+        
+        <p style="font-style: italic; color: #7B5E00; font-weight: 600;">Waiting for my golden coins...</p>
+        
+        <button class="btn" onclick="celebrate()">HAPPY VISHU JOTHYY! 🍛🌼</button>
+    </section>
+
+    <script>
+        // Generate falling petals
+        function createPetals() {
+            const container = document.getElementById('flower-container');
+            for (let i = 0; i < 45; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                const size = (Math.random() * 10 + 8) + 'px';
+                petal.style.width = size;
+                petal.style.height = size;
+                container.appendChild(petal);
+            }
+        }
+
+        // Reveal Vishukani Logic
+        function revealKani() {
+            document.getElementById('kaniDisplay').style.display = 'block';
+            document.getElementById('revealBtn').style.display = 'none';
+            document.getElementById('kaineetamBtn').style.display = 'inline-block';
+            
+            setTimeout(() => {
+                window.scrollBy({ top: 180, behavior: 'smooth' });
+            }, 100);
+        }
+
+        function celebrate() {
+            alert("Happy Vishu, Jothyy! 🌼 Hope your year is full of love, luck, and delicious Sadhya!");
+        }
+
+        // Initialize petals on load
+        createPetals();
+    </script>
+</body>
+</html>
